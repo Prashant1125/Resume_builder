@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume_builder/custom_ui/input_card.dart';
+import 'package:resume_builder/modals/data.dart';
 
 import 'resume.dart';
 
@@ -19,6 +20,13 @@ class _UserDataInputState extends State<UserDataInput> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _phone = TextEditingController();
   final TextEditingController _address = TextEditingController();
+  final TextEditingController _dateofbirth = TextEditingController();
+  final TextEditingController _status = TextEditingController();
+  final TextEditingController _about = TextEditingController();
+  final TextEditingController _strength = TextEditingController();
+  final TextEditingController _weakness = TextEditingController();
+  final TextEditingController _hobbies = TextEditingController();
+  final TextEditingController _languages = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +42,11 @@ class _UserDataInputState extends State<UserDataInput> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Text('Personal Information'),
             InputCard(
               controller: _name,
               hintText: "Enter Name",
               type: TextInputType.name,
               text: 'Name',
-            ),
-            SizedBox(
-              height: mq.height * .015,
             ),
             InputCard(
               controller: _phone,
@@ -50,17 +54,11 @@ class _UserDataInputState extends State<UserDataInput> {
               type: TextInputType.number,
               text: 'Phone',
             ),
-            SizedBox(
-              height: mq.height * .015,
-            ),
             InputCard(
               controller: _email,
               hintText: "Enter Email",
               type: TextInputType.emailAddress,
               text: 'Email',
-            ),
-            SizedBox(
-              height: mq.height * .015,
             ),
             InputCard(
               controller: _address,
@@ -68,16 +66,71 @@ class _UserDataInputState extends State<UserDataInput> {
               type: TextInputType.streetAddress,
               text: 'Address',
             ),
+            InputCard(
+              controller: _dateofbirth,
+              hintText: "Date / Month / Year",
+              type: TextInputType.datetime,
+              text: 'Date Of Birth',
+            ),
+            InputCard(
+              controller: _status,
+              hintText: "Eg--> Single , Married",
+              type: TextInputType.text,
+              text: 'Marital Status',
+            ),
+            InputCard(
+              controller: _about,
+              hintText:
+                  "Eg--> Recent computer science under graduate with a strong academic record and a passion for software development.",
+              type: TextInputType.text,
+              text: 'About Yourself',
+            ),
+            InputCard(
+              controller: _hobbies,
+              hintText: "Playing Cricket , Singing Song , Coding .....",
+              type: TextInputType.text,
+              text: 'Hobbies',
+            ),
+            InputCard(
+              controller: _languages,
+              hintText: "Hindi , English etc .....",
+              type: TextInputType.text,
+              text: 'Language Known',
+            ),
+            InputCard(
+              controller: _strength,
+              hintText: "Self Confidence , Hard-Working .....",
+              type: TextInputType.text,
+              text: 'Strength',
+            ),
+            InputCard(
+              controller: _weakness,
+              hintText: "Hesitation , Difficulty asking questions",
+              type: TextInputType.text,
+              text: 'Weakness',
+            ),
+            SizedBox(
+              height: mq.height * .015,
+            ),
             ElevatedButton(
                 onPressed: () {
                   // String name = nameController.text;
 
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (_) => ResumeScreen(
-                            name: _name.text,
-                            phone: _phone.text,
-                            email: _email.text,
-                            address: _address.text,
+                            input: PersonalInfo(
+                                address: _address.text,
+                                dob: _dateofbirth.text,
+                                email: _email.text,
+                                name: _name.text,
+                                phone: _phone.text,
+                                status: _status.text),
+                            about: About(
+                                about: _about.text,
+                                strength: _strength.text,
+                                weakness: _weakness.text,
+                                hobbies: _hobbies.text,
+                                languages: _languages.text),
                           )));
                 },
                 child: const Text('Submit'))

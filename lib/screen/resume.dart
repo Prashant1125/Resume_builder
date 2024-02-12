@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:resume_builder/custom_ui/headstyle.dart';
 
+import '../modals/data.dart';
+
 // ignore: must_be_immutable
 class ResumeScreen extends StatelessWidget {
   // Variable for Using Display data
-  String name, email, phone, address;
-  ResumeScreen(
-      {Key? key,
-      required this.phone,
-      required this.email,
-      required this.name,
-      required this.address})
-      : super(key: key);
+  final PersonalInfo input;
+  final About about;
+  const ResumeScreen({
+    Key? key,
+    required this.input,
+    required this.about,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,12 @@ class ResumeScreen extends StatelessWidget {
 
               // Display Personal detail of user
 
-              Text('Name : $name'),
-              Text('Email : $email'),
-              Text('Phone: $phone'),
-              Text('Address: $address '),
+              Text('Name : ${input.name}'),
+              Text('Email : ${input.email}'),
+              Text('Phone: ${input.phone}'),
+              Text('Address: ${input.address}'),
+              Text('Status: ${input.status}'),
+              Text('Date Of Birth: ${input.dob}'),
             ],
           ),
         ],
