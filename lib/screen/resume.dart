@@ -20,26 +20,28 @@ class ResumeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Resume'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // For Title Text
-          const Header(info: 'PERSONAL DETAIL'),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // For Title Text
+            const Header(info: 'PERSONAL DETAIL'),
 
-          // Display Personal detail of user
+            // Display Personal detail of user
 
-          Text('Name : ${input.name}'),
-          Text('Email : ${input.email}'),
-          Text('Phone: ${input.phone}'),
-          Text('Address: ${input.address}'),
-          Text('Status: ${input.status}'),
-          Text('Date Of Birth: ${input.dob}'),
-          Text('About : ${about.about}'),
-          Text('Name : ${about.hobbies}'),
-          Text('Name : ${about.languages}'),
-          Text('Name : ${about.strength}'),
-          Text('Name : ${about.weakness}'),
-        ],
+            Text('Name : ${input.name}'),
+            if (input.email.isNotEmpty) Text('Email : ${input.email}'),
+            Text('Phone: ${input.phone}'),
+            Text('Address: ${input.address}'),
+            Text('Status: ${input.status}'),
+            Text('Date Of Birth: ${input.dob}'),
+            Text('About : ${about.about}'),
+            Text('hobbies : ${about.hobbies}'),
+            Text('languages : ${about.languages}'),
+            Text('strength : ${about.strength}'),
+            Text('weakness : ${about.weakness}'),
+          ],
+        ),
       ),
     );
   }

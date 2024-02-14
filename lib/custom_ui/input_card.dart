@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:resume_builder/screen/userdata.dart';
 
+// ignore: must_be_immutable
 class InputCard extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
   final String text;
   final TextInputType type;
-  const InputCard(
+  String? Function(String?)? validator;
+  InputCard(
       {super.key,
       required this.controller,
       required this.hintText,
       required this.type,
-      required this.text});
+      required this.text,
+      this.validator});
 
   @override
   State<InputCard> createState() => _InputCardState();
@@ -30,6 +33,7 @@ class _InputCardState extends State<InputCard> {
             height: mq.height * .005,
           ),
           TextFormField(
+            validator: widget.validator,
             controller: widget.controller,
             keyboardType: widget.type,
             decoration: InputDecoration(
