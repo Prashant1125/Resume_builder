@@ -1,5 +1,5 @@
 class PersonalInfo {
-  final String name, email, phone, address, status, dob;
+  final String name, email, phone, address, status, dob, profession;
 
   PersonalInfo(
       {required this.status,
@@ -7,7 +7,8 @@ class PersonalInfo {
       required this.phone,
       required this.email,
       required this.name,
-      required this.address});
+      required this.address,
+      required this.profession});
 }
 
 class About {
@@ -59,6 +60,17 @@ class GraduationPg {
   final String course, institute, university, result, year;
 
   GraduationPg(
+      {required this.course,
+      required this.institute,
+      required this.university,
+      required this.result,
+      required this.year});
+}
+
+class Diploma {
+  final String course, institute, university, result, year;
+
+  Diploma(
       {required this.course,
       required this.institute,
       required this.university,

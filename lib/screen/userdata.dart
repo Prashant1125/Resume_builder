@@ -24,6 +24,7 @@ class _UserDataInputState extends State<UserDataInput> {
   final TextEditingController _address = TextEditingController();
   final TextEditingController _dateofbirth = TextEditingController();
   final TextEditingController _status = TextEditingController();
+  final TextEditingController _profession = TextEditingController();
 
   // About detail of user
   final TextEditingController _about = TextEditingController();
@@ -60,6 +61,14 @@ class _UserDataInputState extends State<UserDataInput> {
   final TextEditingController _institutepg = TextEditingController();
   final TextEditingController _resultpg = TextEditingController();
   final TextEditingController _yearpg = TextEditingController();
+
+  // Education detail of user of any diploma
+  final TextEditingController _coursedip = TextEditingController();
+  final TextEditingController _universitydip = TextEditingController();
+  final TextEditingController _institutedip = TextEditingController();
+  final TextEditingController _resultdip = TextEditingController();
+  final TextEditingController _yeardip = TextEditingController();
+
   // for validation
   final _formKey = GlobalKey<FormState>();
 
@@ -79,7 +88,13 @@ class _UserDataInputState extends State<UserDataInput> {
           key: _formKey,
           child: Column(
             children: [
-              const Text('Personal Detail'),
+              const Text(
+                'Personal Detail *',
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
               InputCard(
                 validator: (p0) {
                   if (p0!.isEmpty) {
@@ -91,6 +106,18 @@ class _UserDataInputState extends State<UserDataInput> {
                 hintText: "Enter Name",
                 type: TextInputType.name,
                 text: 'Name',
+              ),
+              InputCard(
+                validator: (p0) {
+                  if (p0!.isEmpty) {
+                    return "Please , Enter your professsion ";
+                  }
+                  return null;
+                },
+                controller: _profession,
+                hintText: "Eg -> Student , Devloper , Marketing",
+                type: TextInputType.name,
+                text: 'Profession',
               ),
               InputCard(
                 validator: (p0) {
@@ -136,7 +163,13 @@ class _UserDataInputState extends State<UserDataInput> {
               ),
 
               // About detail
-              const Text('About Detail'),
+              const Text(
+                'About Detail',
+                style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
 
               InputCard(
                 controller: _about,
@@ -177,7 +210,13 @@ class _UserDataInputState extends State<UserDataInput> {
               ),
 
               // Education detail of 10th
-              const Text('10th Detail'),
+              const Text(
+                '10th Detail',
+                style: TextStyle(
+                    color: Colors.pink,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
 
               InputCard(
                 controller: _standard,
@@ -211,7 +250,13 @@ class _UserDataInputState extends State<UserDataInput> {
               ),
 
               //Education detail of 12th
-              const Text('12th Detail'),
+              const Text(
+                '12th Detail',
+                style: TextStyle(
+                    color: Colors.cyan,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
 
               InputCard(
                 controller: _standard12,
@@ -245,7 +290,13 @@ class _UserDataInputState extends State<UserDataInput> {
               ),
 
               //Education detail of Ug
-              const Text('Ug Detail (If you have )'),
+              const Text(
+                'Ug Detail (If you have )',
+                style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
               InputCard(
                 controller: _courseug,
                 hintText: "Btech/BA/Bcom",
@@ -254,9 +305,9 @@ class _UserDataInputState extends State<UserDataInput> {
               ),
               InputCard(
                 controller: _instituteug,
-                hintText: "Rdvv University",
+                hintText: "Takshshila Institute of Engineering",
                 type: TextInputType.text,
-                text: 'Board/University',
+                text: 'Institute',
               ),
               InputCard(
                 controller: _universityug,
@@ -277,19 +328,25 @@ class _UserDataInputState extends State<UserDataInput> {
                 text: 'year of passing',
               ),
 
-              //Education detail of Pg
-              const Text('Pg Detail  (If you have )'),
+              //Education detail of PG
+              const Text(
+                'Education Detail of PG  (If you have )',
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
               InputCard(
                 controller: _coursepg,
-                hintText: "Mtech/MA/Mcom",
+                hintText: "DCA , Computer",
                 type: TextInputType.text,
                 text: 'Course',
               ),
               InputCard(
-                controller: _instituteug,
-                hintText: "Rdvv University",
+                controller: _institutepg,
+                hintText: "Takshshila institute of engineering",
                 type: TextInputType.text,
-                text: 'Board/University',
+                text: 'Institute',
               ),
               InputCard(
                 controller: _universitypg,
@@ -310,72 +367,142 @@ class _UserDataInputState extends State<UserDataInput> {
                 text: 'year of passing',
               ),
 
+              //Education detail of Diploma
+
+              const Text(
+                'Diploma Detail (If you have )',
+                style: TextStyle(
+                    color: Colors.purple,
+                    fontSize: 18,
+                    fontFamily: "times new roman"),
+              ),
+              InputCard(
+                controller: _coursedip,
+                hintText: "Iti / Dca",
+                type: TextInputType.text,
+                text: 'Course',
+              ),
+              InputCard(
+                controller: _institutedip,
+                hintText: "Takshshila Institute Of Engineering",
+                type: TextInputType.text,
+                text: 'Institute',
+              ),
+              InputCard(
+                controller: _universitydip,
+                hintText: "Rdvv University",
+                type: TextInputType.text,
+                text: 'Board/University',
+              ),
+              InputCard(
+                controller: _resultdip,
+                hintText: "56%",
+                type: TextInputType.text,
+                text: 'Result',
+              ),
+              InputCard(
+                controller: _yeardip,
+                hintText: "2024-2028",
+                type: TextInputType.text,
+                text: 'year of passing',
+              ),
+
               // Button
               SizedBox(
-                height: mq.height * .015,
+                height: mq.height * .07,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (_) => ResumeScreen(
-                                // persona; info
+              SizedBox(
+                width: mq.width * .5,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 124, 178, 240),
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12), // <-- Radius
+                      ),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => ResumeScreen(
+                                  // persona; info
 
-                                input: PersonalInfo(
-                                    address: _address.text,
-                                    dob: _dateofbirth.text,
-                                    email: _email.text,
-                                    name: _name.text,
-                                    phone: _phone.text,
-                                    status: _status.text),
+                                  input: PersonalInfo(
+                                      address: _address.text,
+                                      dob: _dateofbirth.text,
+                                      email: _email.text,
+                                      name: _name.text,
+                                      phone: _phone.text,
+                                      status: _status.text,
+                                      profession: _profession.text),
 
-                                // about info
-                                about: About(
-                                    about: _about.text,
-                                    strength: _strength.text,
-                                    weakness: _weakness.text,
-                                    hobbies: _hobbies.text,
-                                    languages: _languages.text,
-                                    skills: ''),
+                                  // about info
+                                  about: About(
+                                      about: _about.text,
+                                      strength: _strength.text,
+                                      weakness: _weakness.text,
+                                      hobbies: _hobbies.text,
+                                      languages: _languages.text,
+                                      skills: ''),
 
-                                // education detail 10th
-                                education10: Education10(
-                                    standard: _standard.text,
-                                    board: _board.text,
-                                    school: _school.text,
-                                    result: _result.text,
-                                    year: _year.text),
+                                  // education detail 10th
+                                  education10: Education10(
+                                      standard: _standard.text,
+                                      board: _board.text,
+                                      school: _school.text,
+                                      result: _result.text,
+                                      year: _year.text),
 
-                                // education detail 10th
-                                education12: Education12(
-                                    standard: _standard12.text,
-                                    board: _board12.text,
-                                    school: _school12.text,
-                                    result: _result12.text,
-                                    year: _year12.text),
+                                  // education detail 10th
+                                  education12: Education12(
+                                      standard: _standard12.text,
+                                      board: _board12.text,
+                                      school: _school12.text,
+                                      result: _result12.text,
+                                      year: _year12.text),
 
-                                // education detail ug
+                                  // education detail ug
 
-                                graduationUg: GraduationUg(
-                                    course: _courseug.text,
-                                    university: _universityug.text,
-                                    result: _resultug.text,
-                                    year: _yearug.text,
-                                    institute: _instituteug.text),
+                                  graduationUg: GraduationUg(
+                                      course: _courseug.text,
+                                      university: _universityug.text,
+                                      result: _resultug.text,
+                                      year: _yearug.text,
+                                      institute: _instituteug.text),
 
-                                // education detail Pg
+                                  // education detail Pg
 
-                                graduationPg: GraduationPg(
-                                    course: _coursepg.text,
-                                    university: _universitypg.text,
-                                    result: _resultpg.text,
-                                    year: _yearpg.text,
-                                    institute: _institutepg.text),
-                              )));
-                    }
-                    // String name = nameController.text;
-                  },
-                  child: const Text('Submit'))
+                                  graduationPg: GraduationPg(
+                                      course: _coursepg.text,
+                                      university: _universitypg.text,
+                                      result: _resultpg.text,
+                                      year: _yearpg.text,
+                                      institute: _institutepg.text),
+
+                                  // education detail Pg
+
+                                  diploma: Diploma(
+                                      course: _coursedip.text,
+                                      institute: _institutedip.text,
+                                      university: _universitydip.text,
+                                      result: _resultdip.text,
+                                      year: _yeardip.text),
+                                )));
+                      }
+                      // String name = nameController.text;
+                    },
+                    child: const Text(
+                      'Submit',
+                      style: TextStyle(
+                          letterSpacing: 3,
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500),
+                    )),
+              ),
+              SizedBox(
+                height: mq.height * .1,
+              ),
             ],
           ),
         ),
