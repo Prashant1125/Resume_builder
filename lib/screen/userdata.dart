@@ -25,6 +25,7 @@ class _UserDataInputState extends State<UserDataInput> {
   final TextEditingController _dateofbirth = TextEditingController();
   final TextEditingController _status = TextEditingController();
   final TextEditingController _profession = TextEditingController();
+  final TextEditingController _nation = TextEditingController();
 
   // About detail of user
   final TextEditingController _about = TextEditingController();
@@ -118,6 +119,18 @@ class _UserDataInputState extends State<UserDataInput> {
                 hintText: "Eg -> Student , Devloper , Marketing",
                 type: TextInputType.name,
                 text: 'Profession',
+              ),
+              InputCard(
+                validator: (p0) {
+                  if (p0!.isEmpty) {
+                    return "Please , Enter your professsion ";
+                  }
+                  return null;
+                },
+                controller: _nation,
+                hintText: "Eg -> Indian",
+                type: TextInputType.name,
+                text: 'Nationallity',
               ),
               InputCard(
                 validator: (p0) {
@@ -434,7 +447,8 @@ class _UserDataInputState extends State<UserDataInput> {
                                       name: _name.text,
                                       phone: _phone.text,
                                       status: _status.text,
-                                      profession: _profession.text),
+                                      profession: _profession.text,
+                                      nation: _nation.text),
 
                                   // about info
                                   about: About(
