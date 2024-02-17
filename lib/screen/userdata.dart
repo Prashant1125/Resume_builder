@@ -422,6 +422,24 @@ class _UserDataInputState extends State<UserDataInput> {
 
               // Button
               SizedBox(
+                height: mq.height * .03,
+              ),
+
+              //Adding a Photo
+              Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      color: Colors.black),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add_a_photo,
+                        size: 35,
+                        color: Color.fromARGB(255, 146, 188, 216),
+                      ))),
+
+              SizedBox(
                 height: mq.height * .07,
               ),
               SizedBox(
@@ -457,7 +475,7 @@ class _UserDataInputState extends State<UserDataInput> {
                                       weakness: _weakness.text,
                                       hobbies: _hobbies.text,
                                       languages: _languages.text,
-                                      skills: ''),
+                                      skills: _skills.text),
 
                                   // education detail 10th
                                   education10: Education10(

@@ -1,33 +1,38 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class ResumeCard extends StatefulWidget {
-  Widget? leading;
+class Education extends StatefulWidget {
   final String text, leadtext;
-  ResumeCard({
+  const Education({
     Key? key,
-    this.leading,
     required this.text,
     required this.leadtext,
   }) : super(key: key);
 
   @override
-  State<ResumeCard> createState() => _ResumeCardState();
+  State<Education> createState() => _EducationState();
 }
 
-class _ResumeCardState extends State<ResumeCard> {
+class _EducationState extends State<Education> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
         titleAlignment: ListTileTitleAlignment.top,
-        minVerticalPadding: 1,
+        dense: true,
+        minVerticalPadding: 5,
         contentPadding: EdgeInsets.zero,
         visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-        leading: widget.leading,
+        leading: Text(
+          widget.leadtext,
+          style: const TextStyle(
+              fontSize: 15, color: Colors.black, fontWeight: FontWeight.w500),
+        ),
         title: Text(
           widget.text,
           style: const TextStyle(
-              fontSize: 15, color: Colors.black54, fontWeight: FontWeight.w500),
+              fontSize: 15,
+              color: Colors.blueGrey,
+              fontWeight: FontWeight.w500),
         ));
   }
 }
