@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:resume_builder/custom_ui/detail_card.dart';
 import 'package:resume_builder/custom_ui/headstyle.dart';
+import 'package:resume_builder/custom_ui/resume_card.dart';
 import 'package:resume_builder/screen/userdata.dart';
 
 import '../modals/data.dart';
@@ -35,174 +37,110 @@ class ResumeScreen extends StatelessWidget {
           child: SafeArea(
               child: Padding(
         padding: EdgeInsets.only(left: mq.width * .01, right: mq.width * .01),
-        child: Container(
-          decoration:
-              BoxDecoration(border: Border.all(width: 1, color: Colors.black)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
 
-            // For Image and contact detail
-            children: [
-              // Photo
-              ListTile(
-                  leading: Container(
-                    width: mq.width * .3,
-                    height: mq.height * .15,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.grey),
-                  ),
-                  title: Text(
-                    input.name,
-                    style: const TextStyle(
-                      fontSize: 40,
-                    ),
-                  )),
-              SizedBox(
-                height: mq.height * .03,
-              ),
+        // left side Resume
+        child: Row(
+          children: [
+            Container(
+              width: mq.width * .49,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.black)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
 
-              // Mobile No.
-
-              Row(
+                // For Image and contact detail
                 children: [
-                  const Icon(
-                    Icons.phone_android_rounded,
+                  // Photo
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: mq.width * .35,
+                      height: mq.height * .2,
+                      color: Colors.grey,
+                    ),
                   ),
-                  SizedBox(
-                    width: mq.width * .02,
+
+                  // Mobile No.
+
+                  ResumeCard(
+                    text: input.phone,
+                    leading: const Icon(Icons.phone_iphone_rounded),
                   ),
-                  Text(
-                    input.phone,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black54),
+
+                  // for email id
+                  ResumeCard(
+                    text: input.email,
+                    leading: const Icon(Icons.email),
                   ),
+
+                  // for address
+                  if (input.address.isNotEmpty)
+                    ResumeCard(
+                      text: input.address,
+                      leading: const Icon(Icons.location_on),
+                    ),
+
+                  // For Other Detail
+
+                  const Header(info: 'Other Detail'),
+
+                  // for Date Of birth
+                  if (input.dob.isNotEmpty)
+                    DetailCard(
+                      text: input.dob,
+                      lead: 'DOB :',
+                    ),
+
+                  // for nationallity
+                  if (input.nation.isNotEmpty)
+                    DetailCard(
+                      text: input.nation,
+                      lead: 'Nationality :',
+                    ),
+
+                  // for Status
+                  if (input.status.isNotEmpty)
+                    DetailCard(
+                      text: input.status,
+                      lead: 'Marital Status :',
+                    ),
                 ],
               ),
-              SizedBox(
-                height: mq.height * .01,
-              ),
+            ),
+            SizedBox(
+              width: mq.width * .01,
+            ),
 
-              // for email id
-              Row(
+            // Right Side
+
+            Container(
+              width: mq.width * .48,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.black)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                // For Image and contact detail
                 children: [
-                  const Icon(Icons.email),
-                  SizedBox(
-                    width: mq.width * .02,
+                  // Photo
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: mq.width * .35,
+                      height: mq.height * .2,
+                      color: Colors.grey,
+                    ),
                   ),
-                  Text(
-                    input.email,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black54),
-                  ),
+
+                  // Mobile No.
                 ],
               ),
-              SizedBox(
-                height: mq.height * .01,
-              ),
-
-              // for address
-              if (input.address.isNotEmpty)
-                Row(
-                  children: [
-                    const Icon(Icons.location_on_outlined),
-                    SizedBox(
-                      width: mq.width * .02,
-                    ),
-                    Text(
-                      input.address,
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black54),
-                    ),
-                  ],
-                ),
-              SizedBox(
-                height: mq.height * .02,
-              ),
-              // For Other Detail
-
-              const Header(info: 'Other Detail'),
-
-              // for Date Of birth
-              if (input.dob.isNotEmpty)
-                Row(
-                  children: [
-                    const Text(
-                      'DOB :',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: mq.width * .02,
-                    ),
-                    Text(
-                      input.dob,
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black54),
-                    ),
-                  ],
-                ),
-
-              // for nationallity
-              if (input.nation.isNotEmpty)
-                Row(
-                  children: [
-                    const Text(
-                      'Nationality :',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: mq.width * .02,
-                    ),
-                    Text(
-                      input.nation,
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black54),
-                    ),
-                  ],
-                ),
-
-              // for Status
-              if (input.status.isNotEmpty)
-                Row(
-                  children: [
-                    const Text(
-                      'Marital Status :',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: mq.width * .02,
-                    ),
-                    Text(
-                      input.status,
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black54),
-                    ),
-                  ],
-                ),
-            ],
-          ),
+            ),
+          ],
         ),
       ))),
     );
