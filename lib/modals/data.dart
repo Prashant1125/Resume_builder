@@ -1,15 +1,16 @@
 class PersonalInfo {
   final String name, email, phone, address, status, dob, profession, nation;
 
-  PersonalInfo(
-      {required this.status,
-      required this.nation,
-      required this.dob,
-      required this.phone,
-      required this.email,
-      required this.name,
-      required this.address,
-      required this.profession});
+  PersonalInfo({
+    required this.status,
+    required this.nation,
+    required this.dob,
+    required this.phone,
+    required this.email,
+    required this.name,
+    required this.address,
+    required this.profession,
+  });
 }
 
 class About {

@@ -121,12 +121,6 @@ class _UserDataInputState extends State<UserDataInput> {
                 text: 'Profession',
               ),
               InputCard(
-                validator: (p0) {
-                  if (p0!.isEmpty) {
-                    return "Please , Enter your professsion ";
-                  }
-                  return null;
-                },
                 controller: _nation,
                 hintText: "Eg -> Indian",
                 type: TextInputType.name,
@@ -426,18 +420,6 @@ class _UserDataInputState extends State<UserDataInput> {
               ),
 
               //Adding a Photo
-              Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(200),
-                      color: Colors.black),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.add_a_photo,
-                        size: 35,
-                        color: Color.fromARGB(255, 146, 188, 216),
-                      ))),
 
               SizedBox(
                 height: mq.height * .07,
@@ -459,14 +441,15 @@ class _UserDataInputState extends State<UserDataInput> {
                                   // persona; info
 
                                   input: PersonalInfo(
-                                      address: _address.text,
-                                      dob: _dateofbirth.text,
-                                      email: _email.text,
-                                      name: _name.text,
-                                      phone: _phone.text,
-                                      status: _status.text,
-                                      profession: _profession.text,
-                                      nation: _nation.text),
+                                    address: _address.text,
+                                    dob: _dateofbirth.text,
+                                    email: _email.text,
+                                    name: _name.text,
+                                    phone: _phone.text,
+                                    status: _status.text,
+                                    profession: _profession.text,
+                                    nation: _nation.text,
+                                  ),
 
                                   // about info
                                   about: About(

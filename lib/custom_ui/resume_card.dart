@@ -26,8 +26,7 @@ class _ResumeCardState extends State<ResumeCard> {
         leading: widget.leading,
         title: Text(
           widget.text,
-          style: const TextStyle(
-              fontSize: 15, color: Colors.black54, fontWeight: FontWeight.w500),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
         ));
   }
 }
