@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:screenshot/screenshot.dart';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -38,9 +37,6 @@ class ResumeScreen extends StatefulWidget {
 }
 
 class _ResumeScreenState extends State<ResumeScreen> {
-  // screenshot controller
-  ScreenshotController screenshotController = ScreenshotController();
-
   // for image
   Uint8List? _image;
   File? selectedIMage;
@@ -51,30 +47,23 @@ class _ResumeScreenState extends State<ResumeScreen> {
       appBar: AppBar(
         title: const Text('Resume'),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 178, 238, 180),
-        onPressed: () {},
-        child: const Icon(
-          Icons.save,
-          size: 25,
-          color: Colors.red,
-        ),
-      ),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
             padding: const EdgeInsets.all(5),
             margin: const EdgeInsets.all(5),
             decoration: BoxDecoration(
-                border: Border.all(width: 2, color: Colors.black)),
+                border: Border.all(width: 3, color: Colors.black)),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  Container(
                     width: mq.width * .49,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.black)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -347,6 +336,9 @@ class _ResumeScreenState extends State<ResumeScreen> {
                                   ],
                                 ),
                               ),
+                            SizedBox(
+                              height: mq.height * .01,
+                            ),
 
                             if (widget.education12.standard.isNotEmpty)
                               Container(
