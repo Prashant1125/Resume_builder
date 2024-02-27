@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:resume_builder/custom_ui/input_card.dart';
 import 'package:resume_builder/modals/data.dart';
 
+import 'contact.dart';
 import 'resume.dart';
 
 // for getting device height and width
@@ -83,6 +84,21 @@ class _UserDataInputState extends State<UserDataInput> {
         elevation: 10,
         centerTitle: true,
         title: const Text('Resume Builder'),
+        actions: [
+          PopupMenuButton(itemBuilder: (context) {
+            return [
+              const PopupMenuItem<int>(
+                value: 0,
+                child: Text("Contact Us"),
+              ),
+            ];
+          }, onSelected: (value) {
+            if (value == 0) {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ContactUs()));
+            }
+          })
+        ],
       ),
       body: SingleChildScrollView(
         child: Form(
