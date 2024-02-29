@@ -219,46 +219,93 @@ class _ContactUsState extends State<ContactUs> {
                         ),
                       ],
                     ),
-                    InkWell(
-                      onTap: () {
-                        launchUrl(Uri.parse(
-                            "https://chat.whatsapp.com/JlBvbEJlWBNGU4T0OPdrY8"));
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: SizedBox(
-                          height: 120,
-                          width: double.infinity,
-                          child: Card(
-                            elevation: 10,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 50,
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                      color: Colors.red.shade100),
-                                  child: Image.asset(
-                                      'assets/images/whatshapp.png'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            launchUrl(Uri.parse(
+                                "https://chat.whatsapp.com/JlBvbEJlWBNGU4T0OPdrY8"));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: SizedBox(
+                              height: 120,
+                              width: 160,
+                              child: Card(
+                                elevation: 10,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(100),
+                                          color: Colors.red.shade100),
+                                      child: Image.asset(
+                                          'assets/images/whatshapp.png'),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Text('Join Online Group',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                  ],
                                 ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Text('MP Online Group',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.green,
-                                      fontWeight: FontWeight.w500,
-                                    )),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                        InkWell(
+                          onTap: () {
+                            launchUrl(Uri.parse('sms:8815020822'));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: SizedBox(
+                              height: 120,
+                              width: 160,
+                              child: Card(
+                                elevation: 10,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(100),
+                                          color: Colors.red.shade100),
+                                      child: Image.asset(
+                                          'assets/images/whatshapp.png'),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Text('Whatshapp',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

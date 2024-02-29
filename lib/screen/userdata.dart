@@ -314,7 +314,7 @@ class _UserDataInputState extends State<UserDataInput> {
 
               //Education detail of Ug
               const Text(
-                'Ug Detail (If you have )',
+                'UG Detail (Optional)',
                 style: TextStyle(
                     color: Colors.orange,
                     fontSize: 18,
@@ -353,7 +353,7 @@ class _UserDataInputState extends State<UserDataInput> {
 
               //Education detail of PG
               const Text(
-                'Education Detail of PG  (If you have )',
+                'PG Detail (Optional)',
                 style: TextStyle(
                     color: Colors.blue,
                     fontSize: 18,
@@ -393,7 +393,7 @@ class _UserDataInputState extends State<UserDataInput> {
               //Education detail of Diploma
 
               const Text(
-                'Diploma Detail (If you have )',
+                'Diploma Detail (Optional)',
                 style: TextStyle(
                     color: Colors.purple,
                     fontSize: 18,
